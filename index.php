@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.6.4.slim.js" defer></script>
     <script src="js/bootstrap/bootstrap.min.js" defer></script>
     <script src="App/app.js" defer></script>
@@ -52,7 +53,7 @@
                                         <div class="col-3">
                                             <div class="mb-3">
                                                 <label for="fecha" class="form-label">Fecha:</label>
-                                                <input type="date" class="form-control" id="fecha" name="fecha"/>
+                                                <input type="date" class="form-control" id="fecha" name="fecha" readonly/>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +63,7 @@
                     </div>
 
                     <div class="container mt-4">
-                        <div class="card">
+                        <div class="card cuerpoCarta">
                             <div class="card-body sumarProducto">
                                     
 
@@ -86,6 +87,9 @@
 
         <!--Mostrar datos de la factura-->
         <div class="container">
+            <div class="container" id="result">
+
+            </div>
 
         </div>
 

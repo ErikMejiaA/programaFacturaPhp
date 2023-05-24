@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cuerpoCarta {
+    height: 19rem;
+    overflow-y: scroll;
+}
