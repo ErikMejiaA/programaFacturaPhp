@@ -8,6 +8,7 @@
     <script src="js/jquery-3.6.4.slim.js" defer></script>
     <script src="js/bootstrap/bootstrap.min.js" defer></script>
     <script src="App/app.js" defer></script>
+    <script src="App/proceDatosFactura.js" defer></script>
     <title>Datos del Cliente</title>
 </head>
 <body>
@@ -18,17 +19,17 @@
 
     <nav></nav>
 
-
     <main>
         <!--Primera parte de la factura-->
         <div class="container mt-3">
             <div class="card">
                 <h5 class="card-header text-center">REGISTRO DE LA FACTURA</h5>
                 <div class="card-body">
-                    <form action="evaluarDatos.php" method="post">
-                        <div class="container mt-3">
-                            <div class="card">
-                                <div class="card-body">
+                    <!--iba un <form action="evaluarDatos.php" method="post"></form>-->
+                    <div class="container mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="headerCliente">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="mb-3">
@@ -55,32 +56,31 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="container mt-4">
-                            <div class="card">
-                                <div class="card-body sumarProducto">
+                    <div class="container mt-4">
+                        <div class="card">
+                            <div class="card-body sumarProducto">
                                     
 
-
-                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="container d-grid gap-2 mt-3">
-                                <button type="button" class="btn btn-info agregarProducto">+</button>
-                        </div>
+                    <div class="container d-grid gap-2 mt-3">
+                        <button type="button" class="btn btn-info agregarProducto">+</button>
+                    </div>
 
-                        <div class="container mt-2">
-                            <button type="submit" class="btn btn-warning GUARDAR">GUARDAR</button>
-                        </div>
-                    </form>
+                    <div class="container mt-2">
+                        <button type="button" class="btn btn-warning GUARDAR">GUARDAR</button>
+                    </div>
+
                 </div>
-            
-            </div>
 
+            </div>
         </div>
 
 
