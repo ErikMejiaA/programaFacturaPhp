@@ -1,13 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #F6F1F1;
+    font-weight: 700;
+}
+
+#encabezado {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(161, 109, 30, 0.308);
+    /*background-image: url(/img/XiP3qS0.jpg);*/
+    /*color: white;*/
 }
 
 .cuerpoCarta {
     height: 19rem;
     overflow-y: scroll;
+    border-width: 2px;
+    border-color: rgba(8, 0, 0, 0.795);
+    border-style: dashed;
 }
 
 #resumenFactura {
     display: none;
+}
+
+.crad-borde {
+    border-width: 3px;
+    border-color: rgba(27, 27, 139, 0.349);
+    border-style: dotted dashed solid double;
+}
+
+.cuerpoCarta1 {
+    border-width: 2px;
+    border-color: rgba(8, 0, 0, 0.795);
+    border-style: dashed;
+}
+
+.card-contenedor {
+    border-width: 4px;
+    border-color: rgba(13, 43, 173, 0.829);
+    border-style: dotted;
 }

@@ -14,8 +14,8 @@
 </head>
 <body>
 
-    <header>
-        <h1 class="text-center">FACTURA DE VENTA</h1>
+    <header id="encabezado">
+        <h1 class="text-center">+++ FACTURA DE VENTA +++</h1>
     </header>
 
     <nav></nav>
@@ -23,12 +23,12 @@
     <main>
         <!--Primera parte de la factura-->
         <div class="container mt-3" id="facturaCompra">
-            <div class="card">
+            <div class="card card-contenedor">
                 <h5 class="card-header text-center">REGISTRO DE LA FACTURA</h5>
                 <div class="card-body">
                     <!--iba un <form action="evaluarDatos.php" method="post"></form>-->
                     <div class="container mt-3">
-                        <div class="card">
+                        <div class="card cuerpoCarta1">
                             <div class="card-body">
                                 <form id="headerCliente">
                                     <div class="row">
@@ -72,11 +72,11 @@
                     </div>
 
                     <div class="container d-grid gap-2 mt-3">
-                        <button type="button" class="btn btn-info agregarProducto">+</button>
+                        <button type="button" class="btn btn-dark agregarProducto">+</button>
                     </div>
 
                     <div class="container mt-2">
-                        <button type="button" class="btn btn-warning GUARDAR">GUARDAR</button>
+                        <button type="button" class="btn btn-success GUARDAR">GUARDAR DATOS</button>
                     </div>
 
                 </div>
@@ -86,49 +86,58 @@
 
 
         <!--Mostrar datos de la factura-->
-        <div class="container" id="resumenFactura">
-            <h2 class="text-center">*******RESUMEN TOTAL FACTURA DE COMPRA*******</h2>
+        <div class="container mt-3" id="resumenFactura">
+            <div class="card card-contenedor">
+                <div class="card-body">
+                    <h3 class="text-center">*******RESUMEN TOTAL FACTURA DE COMPRA*******</h3>
+                    <!--ver los datos del cliente-->
+                    <div class="container mt-3">
+                        <h4 class="text-center">Datos del CLIENTE</h4>
+                        <table class="table table-success table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nro de la Factura</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Nro de la C.C</th>
+                                    <th scope="col">Fecha de Creación</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoTablaCliente">
+                                    
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!--ver los datos del cliente-->
-            <div class="container">
-                <h2 class="text-center">Datos del CLIENTE</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nro de la Factura</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Nro de la C.C</th>
-                            <th scope="col">Fecha de Creación</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoTablaCliente">
-                            
-                    </tbody>
-                </table>
+                    <!--ver los datos del producto-->
+                    <div class="container mt-3">
+                        <h4 class="text-center">Datos del PRODUCTO</h4>
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre Producto</th>
+                                    <th scope="col">Valor Unitario</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoTablaProducto">
+                                    
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="container mt-2">
+                        <button type="button" class="btn btn-primary REGRESAR">MODIFICAR FACTURA</button>
+                        <button type="button" class="btn btn-danger guardarFactura">GUARDAR FACTURA</button>
+                    </div>
+
+                    <!--mensaje de gurdado los datos-->
+                    <div class="container mensaje mt-3">
+                        <h5 id="mensaje1"></h5>
+                    </div>
+                    
+                </div>
             </div>
-
-            <!--ver los datos del producto-->
-            <div class="container">
-                <h2 class="text-center">Datos del PRODUCTO</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre Producto</th>
-                            <th scope="col">Valor Unitario</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoTablaProducto">
-                            
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="container mt-2">
-                <button type="button" class="btn btn-warning REGRESAR">MODIFICAR FACTURA</button>
-            </div>
-
         </div>
 
     </main>

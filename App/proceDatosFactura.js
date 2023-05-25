@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     guardarCliente(); 
     guardarProducto();
     verFacturaClienteProducto();
+    guardarDatos();
 
 });
 
@@ -18,7 +19,7 @@ const guardarCliente = () => {
         const formDatoCliente = document.querySelector('#headerCliente');
         let clienteDatos = Object.fromEntries(new FormData(formDatoCliente).entries());
         datosCliente.push(clienteDatos);
-        //console.log(datosCliente);
+        console.log(datosCliente);
 
         //----listar los datos del cliente-----
         mostrarDatosClientes(datosCliente);
@@ -36,11 +37,11 @@ const guardarProducto = () => {
             datosProducto.push(productoDatos);
            
         });
-        //console.log(datosProducto)
+        console.log(datosProducto)
 
         //----listar los datos del cliente-----
         mostrarDatosProductos(datosProducto);
-
+    
         e.preventDefault();
     });
 }
@@ -50,6 +51,7 @@ const mostrarDatosClientes = (datosClientes) => {
     datosClientes.forEach(clienteDato => {
         const cuerpoTablaCliente = document.querySelector('#cuerpoTablaCliente');
         const crearFilas = document.createElement('tr');
+        crearFilas.className = "tablacliente";
         crearFilas.innerHTML = /* html */ `
             <td>${clienteDato.numFactura}</td>
             <td>${clienteDato.nombre}</td>
@@ -65,6 +67,7 @@ const mostrarDatosProductos = (datosProductos) => {
     datosProductos.forEach(productoDato => {
         const cuerpoTablaProducto = document.querySelector('#cuerpoTablaProducto');
         const crearFilas = document.createElement('tr');
+        crearFilas.className = "tablaProducto";
         crearFilas.innerHTML = /* html */ `
             <td>${productoDato.nombreProducto}</td>
             <td>${productoDato.valorUnitario}</td>
@@ -75,21 +78,34 @@ const mostrarDatosProductos = (datosProductos) => {
     });
 }
 
-//------ver Factura cliente Productos
+//------ver Factura cliente Productos ver y ocultar datos y factura
 function verFacturaClienteProducto() {
     document.querySelector(".REGRESAR").addEventListener('click', (e) => {
+        console.log(datosProducto)
         const ocultarResumeFactura = document.querySelector('#resumenFactura');
         ocultarResumeFactura.style.display = "none";
         const verFactura = document.querySelector('#facturaCompra');
         verFactura.style.display = "block";
-
+        
         //---reiniciamos los valores almacenados----
+        document.querySelector(".tablacliente").remove();
+        document.querySelectorAll(".tablaProducto").forEach((filaProducto) => {
+            filaProducto.remove();
+        });
         datosCliente = [];
         datosProducto = [];
+
+        
     });
 }
 
-
+//--------guardar datos de la factura------------
+const guardarDatos = () => {
+    document.querySelector(".guardarFactura").addEventListener('click', (e) => {
+        enviarDatosForm();
+        document.querySelector('#mensaje1').innerHTML = "Los datos fueron guardados correctamente"
+    });
+} 
 
 //----cabecera del metodo------------------------ 
 let config = {

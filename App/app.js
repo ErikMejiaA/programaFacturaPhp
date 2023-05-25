@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     agregarProducto();
     obtenerFechaActual();
     verListaClienteProducto();
-    //verFacturaClienteProducto();
 });
 
 //name="producto${contarProducto}[]"
@@ -20,7 +19,7 @@ const agregarProducto = () => {
         let productosHTML = document.createElement('div');
         productosHTML.className = "mt-2";
         productosHTML.innerHTML = /* html */ `
-            <div class="card" id="eliminar">
+            <div class="card crad-borde" id="eliminar">
                 <div class="card-body">
                     <form class="detailProducto" id="${contarProducto}">
                         <div class="row">
