@@ -22,7 +22,7 @@
 
     <main>
         <!--Primera parte de la factura-->
-        <div class="container mt-3">
+        <div class="container mt-3" id="facturaCompra">
             <div class="card">
                 <h5 class="card-header text-center">REGISTRO DE LA FACTURA</h5>
                 <div class="card-body">
@@ -86,9 +86,47 @@
 
 
         <!--Mostrar datos de la factura-->
-        <div class="container">
-            <div class="container" id="result">
+        <div class="container" id="resumenFactura">
+            <h2 class="text-center">*******RESUMEN TOTAL FACTURA DE COMPRA*******</h2>
 
+            <!--ver los datos del cliente-->
+            <div class="container">
+                <h2 class="text-center">Datos del CLIENTE</h2>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nro de la Factura</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Nro de la C.C</th>
+                            <th scope="col">Fecha de Creación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTablaCliente">
+                            
+                    </tbody>
+                </table>
+            </div>
+
+            <!--ver los datos del producto-->
+            <div class="container">
+                <h2 class="text-center">Datos del PRODUCTO</h2>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre Producto</th>
+                            <th scope="col">Valor Unitario</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTablaProducto">
+                            
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container mt-2">
+                <button type="button" class="btn btn-warning REGRESAR">MODIFICAR FACTURA</button>
             </div>
 
         </div>

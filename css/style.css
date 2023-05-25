@@ -7,3 +7,7 @@
     height: 19rem;
     overflow-y: scroll;
 }
+
+#resumenFactura {
+    display: none;
+}
