@@ -51,3 +51,23 @@ body {
     border-color: rgba(13, 43, 173, 0.829);
     border-style: dotted;
 }
+
+.grupoBotoInf {
+    align-items: flex-start;
+    display: flex;
+    column-gap: 2%;
+}
+
+.grupoBotoInf table {
+    width: 40%;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+.resultado {
+    padding: 0;
+}
+
+.colun {
+    width: 30%;
+}

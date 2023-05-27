@@ -2,6 +2,7 @@
 // para almacenar los datos del cliente y del producto registrados en el formulario
 let datosCliente = [];
 let datosProducto = [];
+let subtotal = 0.0;
 //----------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,12 +71,27 @@ const mostrarDatosProductos = (datosProductos) => {
         crearFilas.className = "tablaProducto";
         crearFilas.innerHTML = /* html */ `
             <td>${productoDato.nombreProducto}</td>
-            <td>${productoDato.valorUnitario}</td>
+            <td>${formatoMoneda(productoDato.valorUnitario*1)}</td>
             <td>${productoDato.cantidad}</td>
-            <td>${productoDato.total}</td>
+            <td>${formatoMoneda(productoDato.total*1)}</td>
         `;
         cuerpoTablaProducto.appendChild(crearFilas);
+        subtotal += parseFloat(productoDato.total); //acumulamos el total de las compras
+        //console.log(subtotal);
+        mostrarPreciosFactura(subtotal);
     });
+}
+
+const mostrarPreciosFactura = (subtotal) => {
+    //calculamos los datos de la factura y los mostramos
+    document.querySelector('#subtotal').innerHTML = formatoMoneda(subtotal*1);
+    document.querySelector('#iva').innerHTML = formatoMoneda((subtotal * 0.19));
+    document.querySelector('#valorTotal').innerHTML = formatoMoneda((subtotal * 1.19));
+}
+
+//-----funcion para darle formato  a los precios-----------
+const formatoMoneda = (precio) => {
+    return precio.toLocaleString('en-US', {style:'currency', currency:'USD', minimumFractionDigits:2});
 }
 
 //------ver Factura cliente Productos ver y ocultar datos y factura
@@ -92,10 +108,14 @@ function verFacturaClienteProducto() {
         document.querySelectorAll(".tablaProducto").forEach((filaProducto) => {
             filaProducto.remove();
         });
+
+        document.querySelector('#mensaje1').innerHTML = '';
+        document.querySelector('#subtotal').innerHTML = '';
+        document.querySelector('#iva').innerHTML = '';
+        document.querySelector('#valorTotal').innerHTML = '';
         datosCliente = [];
         datosProducto = [];
-
-        
+        subtotal = 0.0;
     });
 }
 
@@ -103,7 +123,7 @@ function verFacturaClienteProducto() {
 const guardarDatos = () => {
     document.querySelector(".guardarFactura").addEventListener('click', (e) => {
         enviarDatosForm();
-        document.querySelector('#mensaje1').innerHTML = "Los datos fueron guardados correctamente"
+        document.querySelector('#mensaje1').innerHTML = "Los datos fueron guardados correctamente";
     });
 } 
 

@@ -126,9 +126,31 @@
                         </table>
                     </div>
 
-                    <div class="container mt-2">
+                    <div class="container mt-2 grupoBotoInf">
                         <button type="button" class="btn btn-primary REGRESAR">MODIFICAR FACTURA</button>
                         <button type="button" class="btn btn-danger guardarFactura">GUARDAR FACTURA</button>
+
+                        <!--Mostrar resulatdos de la compra-->
+                        <div class="container resultado">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td class="colun">Subtotal</td>
+                                        <td class="colun" id="subtotal">0</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="colun">Iva: 19%</td>
+                                        <td class="colun" id="iva">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colun">Valor Total</td>
+                                        <td class="colun" id="valorTotal">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!--mensaje de gurdado los datos-->

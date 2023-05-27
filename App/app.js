@@ -86,12 +86,13 @@ const aumentarCantidadProducto = () => {
                     console.log(frmProducto[2].value)
                     frmProducto[2].value ++; // contamos los productos
                     frmProducto[3].value = (frmProducto[1].value * frmProducto[2].value);
+
                 }
             });
+            
             //let nodoPadre=e.target.parentNode.parentNode.parentNode;
             //let cantidad = nodoPadre.querySelector('.c').value;
             //console.log(cantidad);
-            e.stopImmediatePropagation();
             e.preventDefault();
         });
     });
@@ -107,17 +108,17 @@ const disminuirCantidadProducto = () => {
                     console.log(frmProducto[2].value)
                     frmProducto[2].value --; // restamos la cantidad de productos
                     frmProducto[3].value = (frmProducto[1].value * frmProducto[2].value);
-
+                    
                     //remover o eliminar el form cuando la cantidad de articulos sea de cero (0)
                     if (frmProducto[3].value == 0) {
                         eliminarCarta[op].remove();
                     }
                 }
+                
             });
             //let nodoPadre=e.target.parentNode.parentNode.parentNode;
             //let cantidad = nodoPadre.querySelector('.c').value;
             //console.log(cantidad);
-            e.stopImmediatePropagation();
             e.preventDefault();
         });
     });
