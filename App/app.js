@@ -26,25 +26,25 @@ const agregarProducto = () => {
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label for="nombreProducto" class="form-label ">Nombre del Producto:</label>
-                                    <input type="text" class="form-control n" id="nombreProducto" name="nombreProducto"/> 
+                                    <input type="text" class="form-control nombreProducto" id="nombreProducto" name="nombreProducto"/> 
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label for="valorUnitario" class="form-label ">Valor Unitario:</label>
-                                    <input type="number" class="form-control v" id="valorUnitario" name="valorUnitario" min="0"/>
+                                    <input type="number" class="form-control valorUnitario" id="valorUnitario" name="valorUnitario" min="0"/>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="mb-3">
                                     <label for="cantidad" class="form-label ">cantidad:</label>
-                                    <input type="number" class="form-control c" id="cantidad" name="cantidad" min="0" value="0" readonly/>
+                                    <input type="number" class="form-control cantidad" id="cantidad" name="cantidad" min="0" value="0" readonly/>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="mb-3">
                                     <label for="total" class="form-label t">Total:</label>
-                                    <input type="number" class="form-control t" id="total" name="total" value="0" readonly/>
+                                    <input type="number" class="form-control total" id="total" name="total" value="0" readonly/>
                                 </div>
                             </div>
                             <div class="col-2 mt-2">
@@ -83,16 +83,13 @@ const aumentarCantidadProducto = () => {
             const formDatosProducto = document.querySelectorAll(".detailProducto"); //form del producto
             formDatosProducto.forEach((frmProducto) => {
                 if (frmProducto.id == e.target.id) {
-                    console.log(frmProducto[2].value)
-                    frmProducto[2].value ++; // contamos los productos
-                    frmProducto[3].value = (frmProducto[1].value * frmProducto[2].value);
+                    console.log("hola mundo");
+                    frmProducto.querySelector(".cantidad").value ++; // contar productos, ademas selecionamos un elemnto hijo del elemento padre (en este caso el div)
+                    frmProducto.querySelector(".total").value = (frmProducto.querySelector(".valorUnitario").value * frmProducto.querySelector(".cantidad").value);
 
                 }
             });
             
-            //let nodoPadre=e.target.parentNode.parentNode.parentNode;
-            //let cantidad = nodoPadre.querySelector('.c').value;
-            //console.log(cantidad);
             e.preventDefault();
         });
     });
@@ -105,20 +102,17 @@ const disminuirCantidadProducto = () => {
             const eliminarCarta = document.querySelectorAll('#eliminar'); // carta que contiene el form
             formDatosProducto.forEach((frmProducto) => {
                 if (frmProducto.id == e.target.id) {
-                    console.log(frmProducto[2].value)
-                    frmProducto[2].value --; // restamos la cantidad de productos
-                    frmProducto[3].value = (frmProducto[1].value * frmProducto[2].value);
+                    console.log("hola mundo");
+                    frmProducto.querySelector(".cantidad").value --; // restar productos, ademas selecionamos un elemnto hijo del elemento padre (en este caso el div)
+                    frmProducto.querySelector(".total").value = (frmProducto.querySelector(".valorUnitario").value * frmProducto.querySelector(".cantidad").value);
                     
-                    //remover o eliminar el form cuando la cantidad de articulos sea de cero (0)
-                    if (frmProducto[3].value == 0) {
+                    //remover o eliminar el form o el div cuando la cantidad de articulos sea de cero (0)
+                    if (frmProducto.querySelector(".cantidad").value == 0) {
                         eliminarCarta[op].remove();
                     }
                 }
                 
             });
-            //let nodoPadre=e.target.parentNode.parentNode.parentNode;
-            //let cantidad = nodoPadre.querySelector('.c').value;
-            //console.log(cantidad);
             e.preventDefault();
         });
     });
