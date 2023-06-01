@@ -107,7 +107,7 @@ const disminuirCantidadProducto = () => {
                     frmProducto.querySelector(".total").value = (frmProducto.querySelector(".valorUnitario").value * frmProducto.querySelector(".cantidad").value);
                     
                     //remover o eliminar el form o el div cuando la cantidad de articulos sea de cero (0)
-                    if (frmProducto.querySelector(".cantidad").value == 0) {
+                    if (frmProducto.querySelector(".cantidad").value <= 0) {
                         eliminarCarta[op].remove();
                     }
                 }
